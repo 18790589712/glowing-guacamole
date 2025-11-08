@@ -1,0 +1,26 @@
+import cv2
+
+# 读取图片
+img = cv2.imread('test.jpg.png')
+
+if img is None:
+    print("错误: 找不到图片")
+else:
+    print("✅ 图片读取成功！")
+    
+    # 获取图片尺寸
+    height, width = img.shape[:2]
+    print(f"图片尺寸: 宽 {width}px, 高 {height}px")
+    
+    # 创建一个可调整大小的窗口
+    cv2.namedWindow('My OpenCV Window', cv2.WINDOW_NORMAL)
+    
+    # 调整窗口大小适应图片
+    cv2.resizeWindow('My OpenCV Window', width, height)
+    
+    # 显示图片
+    cv2.imshow('My OpenCV Window', img)
+    print("显示全尺寸图片！按任意键关闭窗口")
+    
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
